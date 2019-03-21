@@ -95,7 +95,6 @@ public:
     void clear();
     bool is_empty();
     void set(size_t index, Data data);  //add element instead of element with that index
-    int find(Data data);   //return index of the element or -1 if the element's not found
     friend std::ostream& operator <<  <Data>(std::ostream &out, List &list);
     friend std::ostream& operator <<  <Data>(std::ostream &out, List *list);
 
@@ -346,18 +345,6 @@ typename List<Data>::Node* List<Data>::get_head(){
     return head;
 }
 
-template <typename Data>
-int List<Data>::find(Data data){
-    Node* node = head;
-    int index = 0;
-    while (node){
-        if (node->data == data)
-            return index;
-        node = node->next;
-        index++;
-    }
-    return -1;
-}
 
 #endif //LAB1_2_LIST_H
 
